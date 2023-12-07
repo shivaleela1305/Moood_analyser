@@ -12,17 +12,19 @@ interface Expression{
 			throws MoodAnalysisException;
 }
 
-class IdentifyMood implements Expression{
+//uc1 : ability to analyse and respond Happy or Sad Mood
+class moodDetection implements Expression{
 	@Override
 	public String analyseExpression(String message) throws MoodAnalysisException {
-		if(message.toLowerCase().contains("happy")) {
-			return "Happy Mood";
+		if(message == null || message.isEmpty()){
+			throw new
+			MoodAnalysisException("Invalid or empty message");
 		}
-		else if(message.toLowerCase().contains("sad")) {
+		else if(message.contains("I am in sad mood")) {
 			return "Sad Mood";
 			}
 		else {
-			throw new MoodAnalysisException("unable to determine mood");
+			return "Happy Mood";
 		}
 		
 	}

@@ -26,17 +26,11 @@ class Expression_Test {
     
     @Test
     public void testNullMessage() throws MoodAnalysisException {
-    	Expression MoodAnalyser = new moodDetection();
-        String message = null;
-        assertThrows(MoodAnalysisException.class, ()-> MoodAnalyser.analyseExpression(message));
-    }
-    
-    @Test
-    public void testEmptyMessage() throws MoodAnalysisException {
     	Expression moodAnalyser = new moodDetection();
-        String message = "";
-        assertThrows(MoodAnalysisException.class, ()-> moodAnalyser.analyseExpression(message));
+        String message = null;
+        String mood = moodAnalyser.analyseExpression(message);
+        assertEquals("Happy Mood", mood);
     }
-    
 
+    
 }

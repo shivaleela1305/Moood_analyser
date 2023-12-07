@@ -16,9 +16,10 @@ interface Expression{
 class moodDetection implements Expression{
 	@Override
 	public String analyseExpression(String message) throws MoodAnalysisException {
+		//UC2 : Handaling exception if user provides a invalid expression
 		if(message == null || message.isEmpty()){
 			throw new
-			MoodAnalysisException("Invalid or empty message");
+			MoodAnalysisException("Invalid mood");
 		}
 		else if(message.contains("I am in sad mood")) {
 			return "Sad Mood";
